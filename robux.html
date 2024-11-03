@@ -1,0 +1,275 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synapse Z Key Shop</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"); /*
+        ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
+        */
+        *,:after,:before {
+            box-sizing: border-box;
+            border: 0 solid #e5e7eb
+        }
+
+        :host,html {
+            font-family: Poppins,sans-serif;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+        }
+
+        * {
+            font-family: Poppins,sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #1a1627, #3a3159);
+        }
+        .container {
+            text-align: center;
+            max-width: 900px;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(0deg, #312d41, #14111f), linear-gradient(0deg, #FFFFFF, #000000), linear-gradient(0deg, #040404, #040404);
+            margin-top: 30px;
+            border-radius: 15px;
+            border: 1px dashed rgba(108, 180, 197, 0.322);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h2, h2 {
+            color: white;
+            font-size: 1.5em;
+            margin: 10px 0;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+        }
+        .price {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .price img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .btn {
+            color: #ffffff;
+            font-size: 15px;
+            background: linear-gradient(180deg, #09080f, rgba(31, 28, 47, 0.87));
+            box-shadow: inset 0px 2px 0px 0px rgb(7, 6, 11);
+            border-top: none !important;
+            border: 1px solid rgba(255, 255, 255, 0.1294117647);
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .btn:hover {
+            border: none;
+            background: linear-gradient(180deg, #B295FF, rgba(122, 87, 216, 0.4));
+            box-shadow: -1px -1px 3px rgba(7, 6, 11, 0.7);
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: linear-gradient(0deg, #312d41, #14111f), linear-gradient(0deg, #FFFFFF, #000000), linear-gradient(0deg, #040404, #040404);
+            border-radius: 15px;
+            border: 1px dashed rgba(108, 180, 197, 0.322);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            animation: fadeIn 0.3s ease;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.9em;
+            color: white;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: transparent;
+            border: 1px dashed rgba(108, 180, 197, 0.322);
+            outline: none;
+            color: white;
+        }
+        .info-icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background-color: #888;
+            color: #fff;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 0.8em;
+            margin-left: 8px;
+            cursor: pointer;
+            position: relative;
+        }
+        .info-icon:hover::after {
+            content: "Enter Roblox Username & Email to receive key, then purchase the gamepass and validate.";
+            position: absolute;
+            background-color: #fff;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            width: 220px;
+            top: -50px;
+            left: -100px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            font-size: 0.85em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: white">XorExploits [ROBUX]</h1>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://imagedelivery.net/95QNzrEeP7RU5l5WdbyrKw/66a0c3e1-9bae-4a76-8148-497a8b08de00/shopitem" alt="1 Week Key Image">
+                <h2>1 Week Key</h2>
+                <div class="price">
+                    ⏣ 2300 Robux
+                    <div class="info-icon">i</div>
+                </div>
+                <button class="btn" onclick="openModal('https://www.roblox.com/game-pass/957815227', '⏣2300 Robux')">Purchase</button>
+            </div>
+
+            <div class="card">
+                <img src="https://imagedelivery.net/95QNzrEeP7RU5l5WdbyrKw/66a0c3e1-9bae-4a76-8148-497a8b08de00/shopitem" alt="1 Month Key Image">
+                <h2>1 Month Key</h2>
+                <div class="price">
+                    ⏣ 6900 Robux
+                    <div class="info-icon">i</div>
+                </div>
+                <button class="btn" onclick="openModal('https://www.roblox.com/game-pass/957773369', '⏣6900 Robux')">Purchase</button>
+            </div>
+
+            <div class="card">
+                <img src="https://imagedelivery.net/95QNzrEeP7RU5l5WdbyrKw/3ecfe4ff-3435-40a4-dae5-17dad26d5a00/shopitem" alt="1 Week Key Image">
+                <h2>1 Week Key</h2>
+                <div class="price">
+                    ⏣ 2600 Robux
+                    <div class="info-icon">i</div>
+                </div>
+                <button class="btn" onclick="openModal('https://www.roblox.com/game-pass/957079897', '⏣2600 Robux')">Purchase</button>
+            </div>
+
+            <div class="card">
+                <img src="https://imagedelivery.net/95QNzrEeP7RU5l5WdbyrKw/3ecfe4ff-3435-40a4-dae5-17dad26d5a00/shopitem" alt="1 Month Key Image">
+                <h2>1 Month Key</h2>
+                <div class="price">
+                    ⏣ 7800 Robux
+                    <div class="info-icon">i</div>
+                </div>
+                <button class="btn" onclick="openModal('https://www.roblox.com/game-pass/957863088', '⏣7800 Robux')">Purchase</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Complete Purchase</h2>
+            <p style="color: white;" id="priceLabel"></p>
+            <div class="input-group">
+                <label for="modalEmail">Email</label>
+                <input type="email" id="modalEmail" placeholder="e.g., user@example.com">
+            </div>
+            <div class="input-group">
+                <label for="modalUsername">Roblox Username</label>
+                <input type="text" id="modalUsername" placeholder="e.g., RobloxUser">
+            </div>
+            <a class="btn" id="purchaseLink" href="#" target="_blank">Go to Gamepass</a>
+            <button class="btn" onclick="validatePurchase()">Validate Purchase</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(gamepassLink, priceText) {
+            document.getElementById("priceLabel").textContent = priceText;
+            document.getElementById("purchaseLink").href = gamepassLink;
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function validatePurchase() {
+            const email = document.getElementById("modalEmail").value;
+            const username = document.getElementById("modalUsername").value;
+
+            if (!email || !username) {
+                alert("Please enter both email and Roblox username.");
+                return;
+            }
+
+            alert("Validation unsuccessfull, are you sure you input the correct username?");
+        }
+
+        // Close modal if clicked outside of modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById("modal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+
+</body></html>
